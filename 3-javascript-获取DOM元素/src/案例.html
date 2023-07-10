@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+	<title>请控制台依次输出3个li的DOM对象，并修改颜色</title>
+</head>
+<body>
+<ul class="nav">
+	<li>我的首页</li>
+	<li>产品介绍</li>
+	<li>联系方式</li>
+</ul>
+
+<script>
+	//	list 是一个伪数组，有长度，索引号；但是没有pop()和push()等数组方法
+	const list = document.querySelectorAll('ul li')
+	console.log(list)
+	for (let i = 0; i < list.length; i++) {
+		console.log(list[i])
+		list[i].style.color = 'red'
+		console.log(typeof list[i])
+	}
+</script>
+</body>
+</html>
