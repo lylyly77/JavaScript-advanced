@@ -133,7 +133,6 @@
 	const p = document.querySelector('.slider-footer p')
 	const li = document.querySelectorAll('.slider-indicator li')
 	const footer = document.querySelector('.slider-footer')
-	const active = document.querySelector('.slider-indicator .active')
 	
 	let i = 0
 	setInterval(function () {
@@ -150,7 +149,7 @@
 		footer.style.backgroundColor = sliderData[i].color
 		// 更换小圆点
 		// 先删除以前的active
-		active.classList.remove('active')
+		document.querySelector('.slider-indicator .active').classList.remove('active')
 		// 只让当前的li添加active
 		li[i].classList.add('active')
 		
