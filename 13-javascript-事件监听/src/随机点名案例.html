@@ -67,7 +67,7 @@
 	
 	start.addEventListener('click', () => {
 		timeId = setInterval(function () {
-			i =Math.floor(Math.random()*arr.length)
+			i = Math.floor(Math.random() * arr.length)
 			qs.innerHTML = `${arr[i]}`
 			// 点击开始之后直接关闭点击按钮，防止按钮能一直按，产生多个数组
 			start.disabled = true
@@ -79,7 +79,7 @@
 		arr.splice(i, 1)
 		console.log(arr)
 		start.disabled = false
-		if(arr.length===1){
+		if (arr.length === 1) {
 			start.disabled = true
 			end.disabled = true
 		}
