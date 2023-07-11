@@ -19,17 +19,13 @@
 	console.log(arr)
 	console.log(list)
 	
-	let i = Math.floor(Math.random() * arr.length)
-	list[0].innerText = `一等奖：${arr[i]}`
-	arr.splice(i,1)
+	for (let n = 0; n <= 2; n++) {
+		let i = Math.floor(Math.random() * arr.length)
+		list[n].innerText = `${n+1}等奖：${arr[i]}`
+		arr.splice(i, 1)
+	}
 	
-	i = Math.floor(Math.random() * arr.length)
-	list[1].innerText = `二等奖：${arr[i]}`
-	arr.splice(i,1)
 	
-	i = Math.floor(Math.random() * arr.length)
-	list[2].innerText = `三等奖：${arr[i]}`
-	arr.splice(i,1)
 
 </script>
 </body>
