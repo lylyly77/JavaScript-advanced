@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+	<title>bug测试</title>
+	<style>
+		.active {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+<ul>
+	<li class="active">1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+</ul>
+
+<script>
+	// 功能：每隔一秒 下一行会变红 上一行回复原来的颜色
+	// bug说明
+	// active.classList.remove('active') 无法实现删除上次类名为.active的功能
+	// 只是把刚开始的第一个类名为.active li标签删除
+	// 测试发现
+	// active 只能获取html里面，刚开始类名active的li标签
+	// 所以再执行第一次循环时，可以删除第一个li，然后再第二个li加上类名active
+	// 这个时候需要重新获取类名为active的标签
+	// 然后执行下一次循环
+	// bug已解决
+	
+	// 另一种解决方式
+	// setInterval(function () {
+	// 		i++
+	// 		document.querySelector('.active').classList.remove('active')   重新获取之后进行删除
+	// 		li[i].classList.add('active')
+	// }, 1000)
+	let active = document.querySelector('.active')
+	const li = document.querySelectorAll('ul li')
+	console.log(active)
+	console.log(li)
+	let i = 0
+	setInterval(function () {
+		i++
+		active.classList.remove('active')
+		li[i].classList.add('active')
+		// active = document.querySelector('.active')
+	}, 1000)
+</script>
+</body>
+</html>

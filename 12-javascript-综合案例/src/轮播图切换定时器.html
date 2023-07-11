@@ -133,6 +133,9 @@
 	const p = document.querySelector('.slider-footer p')
 	const li = document.querySelectorAll('.slider-indicator li')
 	const footer = document.querySelector('.slider-footer')
+	let active = document.querySelector('.active')
+	// 这里之所以用let，是因为这里保存的是第一个li对象的地址
+	// 后面需要重新保存下一个li对象的地址
 	
 	let i = 0
 	setInterval(function () {
@@ -149,10 +152,15 @@
 		footer.style.backgroundColor = sliderData[i].color
 		// 更换小圆点
 		// 先删除以前的active
-		document.querySelector('.slider-indicator .active').classList.remove('active')
+		active.classList.remove('active')
 		// 只让当前的li添加active
 		li[i].classList.add('active')
+		// 重新获取类名为.active的标签li
+		active = document.querySelector('.active')
 		
+		//	152和156行可以缩减为 写在52行
+		// 重新获取类名为active的标签，并删除类名
+		// document.querySelector('.active').remove('active')
 	}, 1000)
 
 </script>
