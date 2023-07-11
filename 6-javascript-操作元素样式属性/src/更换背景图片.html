@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+	<title>更换背景图片</title>
+	<style>
+		body {
+			background: url("./images/desktop_1.jpg") no-repeat top center/cover;
+		}
+	</style>
+</head>
+<body>
+<script>
+	// console.log(document.body)
+	
+	const body = document.querySelector('body')
+	let i = Math.floor(Math.random() * 10) + 1
+	body.style.backgroundImage = `url("./images/desktop_${i}.jpg") `
+</script>
+</body>
+</html>

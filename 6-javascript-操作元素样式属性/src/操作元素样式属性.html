@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+	<title>操作元素样式属性</title>
+	<style>
+		div {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+		}
+		
+		.box {
+			width: 300px;
+			height: 300px;
+			background-color: pink;
+			border: 1px solid red;
+			padding: 10px;
+			margin: 100px auto;
+		}
+		
+		.nav {
+			
+			color: red;
+		}
+		
+		.class1 {
+			border: 1px solid blue;
+		}
+		
+		.class2 {
+			color: purple;
+		}
+		.class3{
+			width: 100px;
+			height: 100px;
+			background-color: darkkhaki;
+		}
+	</style>
+</head>
+<body>
+<div>style操作css</div>
+<div class="name">类名操作css</div>
+<div class="list">classList操作css</div>
+<script>
+	// 三种操作方式是
+	// 1. 通过style属性操作CSS
+	// 2. 通过类名（className）操作CSS
+	// 3. 通过classList操作CSS
+	
+	// 1. 通过style属性操作CSS
+	const div = document.querySelector('div')
+	// css background-color 改为小驼峰命名法
+	div.style.backgroundColor = 'purple'
+	// 不要忘记加单位
+	div.style.width = '300px'
+	div.style.height = '400px'
+	
+	// 2. 通过类名（className）操作CSS
+	// 当需要修改的样式太多时，可以另写一个class的样式，然后用js直接将标签的类名改为另一个样式的名字
+	const name = document.querySelector('.name')
+	// 这里的'box'不用加. 因为是className
+	name.className = 'nav box'  // class= nav box  nav的样式和box样式都会有
+	
+	// 3. 通过classList操作CSS（解决第二种操作方法可能会覆盖类名的问题）
+	const list = document.querySelector('.list')
+	list.classList.add('class3')
+	list.classList.add('class2')
+	list.classList.add('class1')
+	list.classList.remove('class1') // 删除
+	// toggle 切换
+	list.classList.toggle('class1') //类名有class1就就删掉，没有就加上
+	
+</script>
+</body>
+</html>

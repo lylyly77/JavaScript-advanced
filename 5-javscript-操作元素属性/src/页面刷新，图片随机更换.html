@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+	<title>页面刷新，图片随机更换</title>
+</head>
+<body>
+<img src="" title="刘德华" alt="">
+<script>
+	// 页面刷新，页面随机显示不同图片
+	
+	const img = document.querySelector('img')
+	const arr = [1, 2, 3, 4, 5, 6]
+	console.log(img)
+	let i = Math.floor(Math.random() * 6)
+	img.src = `./images/${arr[i]}.webp`
+	arr.splice(i, 1)
+	console.log(arr)
+</script>
+</body>
+</html>
