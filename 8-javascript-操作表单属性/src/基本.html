@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+	<title>操作表单属性</title>
+</head>
+<body>
+<label>
+	<input class="text" type="text" value="电脑">
+	<input class="checkbox" type="checkbox" name="" id="">
+</label>
+<button disabled>点击</button>
+<!--属性名和属性值一样 disabled = 'disabled'，只写一个就可以 HTML5写法-->
+<script>
+	// 获取元素
+	const text = document.querySelector('.text')
+	// 获取表单里的值
+	console.log(text.value)
+	// console.log(input.innerHTML) 是得不到表单内容的。
+	
+	// 设置表单的值
+	// 将表单的文本内容变成不可见密码
+	text.type = 'password'
+	
+	//	表单属性中添加就有效果，移除就没有效果，一律使用布尔值表示
+	// 	比如disabled checked selected
+	const checkbox = document.querySelector('.checkbox')
+	// checkbox.checked表示是否勾选
+	console.log(checkbox.checked)
+	checkbox.checked = true 	// 'true' 字符串也可以，因为会隐式转换，默认空字符串为false
+	
+	// button disabled（是否禁用）
+	const button = document.querySelector('button')
+	console.log(button.disabled)
+	button.disabled = true
+</script>
+</body>
+</html>
