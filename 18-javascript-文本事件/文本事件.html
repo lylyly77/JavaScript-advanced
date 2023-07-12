@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+	<title>Title</title>
+</head>
+<body>
+<label>
+	<input type="text">
+</label>
+<script>
+	// 用户输入文本即可触发事件
+	const input = document.querySelector('input')
+	console.log(input)
+	input.addEventListener('input',()=>{
+		// 用户在输入框中输入文字 即可触发事件
+		console.log(input.value)
+	})
+</script>
+</body>
+</html>
