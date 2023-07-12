@@ -116,8 +116,9 @@
 <script>
 	
 	// 每隔一秒切换一个图片
-	// 新加功能：当鼠标经过左右的按钮，可以切换轮播图
-	// 新加功能：当鼠标悬浮在图片的时候停止移动
+	// 新加功能：当点击左右的按钮，可以切换轮播图
+	// 新加功能：当鼠标悬浮在左右按钮的时候停止移动
+	// 新加功能：当鼠标事件触发完成后，继续自动滚动图片
 	// 1. 初始数据
 	const sliderData = [
 		{url: './images/slider01.jpg', title: '对人类来说会不会太超前了？', color: 'rgb(100, 67, 68)'},
@@ -136,18 +137,13 @@
 	const li = document.querySelectorAll('.slider-indicator li')
 	const footer = document.querySelector('.slider-footer')
 	let active = document.querySelector('.active')
+	const pre = document.querySelector('.toggle .prev')
+	const next = document.querySelector('.toggle .next')
+	const slider = document.querySelector('.slider')
 	// 这里之所以用let，是因为这里保存的是第一个li对象的地址
 	// 后面需要重新保存下一个li对象的地址
 	
 	let i = 0
-	let id = setInterval(function () {
-		i++
-		if (i === sliderData.length) {
-			i = 0
-		}
-		console.log(i)
-		change()
-	}, 1000)
 	
 	function change() {
 		// 更换图片
@@ -169,56 +165,40 @@
 		// document.querySelector('.active').remove('active')
 	}
 	
-	const pre = document.querySelector('.toggle .prev')
-	const next = document.querySelector('.toggle .next')
+	// 点击右箭头,切换成下一张
+	next.addEventListener('click', () => {
+		i++
+		i = i === sliderData.length ? 0 : i
+		change()
+	})
+	// 点击右箭头,切换成下一张
+	pre.addEventListener('click', () => {
+		i--
+		i = i === -1 ? sliderData.length - 1 : i
+		change()
+	})
 	
-	// 鼠标悬浮在左箭头，图片向左移动；离开停止,且图片自动滚动
-	let id1
-	pre.addEventListener('mouseenter', () => {
+	// 	自动播放
+	let id = setInterval(() => {
+		// 利用js自动调用点击事件
+		// 上面加了事件监听
+		// 调用函数
+		next.click()
+	}, 1000)
+	
+	// 鼠标离开开启自动播放,经过关闭自动播放
+	slider.addEventListener('mouseenter', () => {
 		clearInterval(id)
-		id1 = setInterval(function () {
-			i--
-			if (i === -1) {
-				i = sliderData.length - 1
-			}
-			console.log(i)
-			change()
-		}, 1000)
-		
 	})
-	pre.addEventListener('mouseleave', () => {
-		clearInterval(id1)
-		id = setInterval(function () {
-			i++
-			if (i === sliderData.length) {
-				i = 0
-			}
-			console.log(i)
-			change()
-		}, 1000)
-	})
-	// 鼠标悬浮在右箭头，图片向右移动；离开停止,且图片自动滚动
-	let id2
-	next.addEventListener('mouseenter', () => {
+	slider.addEventListener('mouseleave', () => {
+		// 停止计时器
 		clearInterval(id)
-		id2 = setInterval(function () {
-			i++
-			if (i === sliderData.length) {
-				i = 0
-			}
-			console.log(i)
-			change()
-		}, 1000)
-	})
-	next.addEventListener('mouseleave', () => {
-		clearInterval(id2)
-		id = setInterval(function () {
-			i++
-			if (i === sliderData.length) {
-				i = 0
-			}
-			console.log(i)
-			change()
+		// 开启计时器
+		id = setInterval(() => {
+			// 利用js自动调用点击事件
+			// 上面加了事件监听
+			// 调用函数
+			next.click()
 		}, 1000)
 	})
 </script>
