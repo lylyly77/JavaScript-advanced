@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+	<title>Title</title>
+	<style>
+		div {
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+<div></div>
+<script>
+	// click 鼠标点击
+	// 鼠标经过mouseenter
+	const div = document.querySelector('div')
+	div.addEventListener('mouseenter',()=>{
+		div.style.backgroundColor = 'yellow'
+	})
+	// mouseleave 鼠标离开
+	div.addEventListener('mouseleave',()=>{
+		div.style.backgroundColor='grey'
+	})
+</script>
+</body>
+</html>
