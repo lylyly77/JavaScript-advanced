@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+	<title>Title</title>
+</head>
+<body>
+<label>
+	<input type="text">
+</label>
+<script>
+	// 目标:能够使用常见事件对象属性
+	// type
+	// 获取当前的事件类型
+	// clientX/clientY
+	// 获取光标相对于浏览器可见窗口左上角的位置
+	// offsetX/offsetY
+	// 获取光标相对于当前DOM元素左上角的位置
+	// key
+	// 用户按下的键盘键的值
+	// 现在不提倡使用keyCode
+	
+	const input = document.querySelector('input')
+	input.addEventListener('keyup', function (e) {
+		// 知道用户是哪一个按下的键位
+		// console.log(e.key)
+		if(e.key==='Enter'){
+			console.log('我按下了回车键')
+		}
+	})
+	
+</script>
+</body>
+</html>

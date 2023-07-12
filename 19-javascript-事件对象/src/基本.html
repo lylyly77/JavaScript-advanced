@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+	<title>Title</title>
+</head>
+<body>
+<button>点击</button>
+<script>
+	// 目标:能说出什么是事件对象
+	// 事件对象是什么
+	// >也是个对象，这个对象里有事件触发时的相关信息
+	// >例如:鼠标点击事件中，事件对象就存了鼠标点在哪个位置等信息使用场景
+	// >可以判断用户按下哪个键，比如按下回车键可以发布新闻可以判断鼠标点击了哪个元素，从而做相应的操作
+	
+	// 	在事件绑定的回调函数的第一个参数就是事件对象  一般命名为event、ev、e
+	
+	const btn = document.querySelector('button')
+	// 这里的e就是事件对象
+	btn, addEventListener('click', function (e) {
+		console.log(e)
+	})
+</script>
+</body>
+</html>
