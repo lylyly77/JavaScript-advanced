@@ -94,57 +94,19 @@
 	// 之前的案例的切换小圆点
 	const ul = document.querySelector('.tab-nav ul')
 	const li = document.querySelectorAll('.tab-nav li')
-	const item = document.querySelectorAll('.tab-content .item')
 	const a = document.querySelectorAll('.tab-nav li a')
+	const item = document.querySelectorAll('.tab-content .item')
 	
-	console.log(a)
-	console.log(ul)
-	
-	
-	
-	li[1].addEventListener('click', () => {
-		li[0].classList.remove('active')
-		item[0].classList.remove('active')
-		a[0].classList.remove('active')
-		li[1].classList.add('active')
-		item[1].classList.add('active')
-		a[1].classList.add('active')
-		
-	})
-	
-	li[2].addEventListener('click', () => {
-		li[1].classList.remove('active')
-		item[1].classList.remove('active')
-		a[1].classList.remove('active')
-		li[2].classList.add('active')
-		item[2].classList.add('active')
-		a[2].classList.add('active')
-		
-	})
-	
-	li[3].addEventListener('click', () => {
-		li[2].classList.remove('active')
-		item[2].classList.remove('active')
-		a[2].classList.remove('active')
-		li[3].classList.add('active')
-		item[3].classList.add('active')
-		a[3].classList.add('active')
-		
-	})
+	const activeA = document.querySelector('.tab-nav .active')
+	const activeItem = document.querySelector('.tab-content .active')
 	
 	
-	li[4].addEventListener('click', () => {
-		li[3].classList.remove('active')
-		item[3].classList.remove('active')
-		a[3].classList.remove('active')
-		li[4].classList.add('active')
-		item[4].classList.add('active')
-		a[4].classList.add('active')
-	})
-	
-	
-
-
+	// 	1. a标签 给5个链接绑定事件
+	for (let i = 0; i < a.length; i++) {
+		a[i].addEventListener('mouseenter', function () {
+			console.log('鼠标经过')
+		})
+	}
 </script>
 </body>
 
