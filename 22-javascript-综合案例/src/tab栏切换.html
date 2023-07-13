@@ -92,13 +92,7 @@
 <script>
 	// 需求:鼠标经过不同的选项卡，底部可以显示不同的内容
 	// 之前的案例的切换小圆点
-	const ul = document.querySelector('.tab-nav ul')
-	const li = document.querySelectorAll('.tab-nav li')
 	const a = document.querySelectorAll('.tab-nav li a')
-	const item = document.querySelectorAll('.tab-content .item')
-	
-	let activeA = document.querySelector('.tab-nav .active')
-	let activeItem = document.querySelector('.tab-content .active')
 	
 	
 	// 	1. a标签 给5个链接绑定事件
@@ -106,16 +100,14 @@
 	for (let i = 0; i < a.length; i++) {
 		a[i].addEventListener('mouseenter', function () {
 			// console.log('鼠标经过')
-			// 删除之前的悬浮效果以及图片内容
-			activeA.classList.remove('active')
-			activeItem.classList.remove('active')
-			// 加入新的悬浮效果和对应图片内容
-			a[i].classList.add('active')
-			item[i].classList.add('active')
-			// 重新获取新的悬浮效果和对应内容
-			activeA = document.querySelector('.tab-nav .active')
-			activeItem = document.querySelector('.tab-content .active')
-			
+			// 获取当前为active的a标签，并删除active，从而删除鼠标经过效果
+			document.querySelector('.tab-nav .active').classList.remove('active')
+			// a标签加入类名active，从而添加鼠标经过效果
+			this.classList.add('active')
+			// 获取当前为active的a标签，并删除active，从而删除对应图片内容
+			document.querySelector('.tab-content .active').classList.remove('active')
+			// 获取当前的img标签加入类名active，从而添加对应图片内容
+			document.querySelector(`.tab-content .item:nth-child(${i+1})`).classList.add('active')
 		})
 	}
 </script>
