@@ -97,14 +97,25 @@
 	const a = document.querySelectorAll('.tab-nav li a')
 	const item = document.querySelectorAll('.tab-content .item')
 	
-	const activeA = document.querySelector('.tab-nav .active')
-	const activeItem = document.querySelector('.tab-content .active')
+	let activeA = document.querySelector('.tab-nav .active')
+	let activeItem = document.querySelector('.tab-content .active')
 	
 	
 	// 	1. a标签 给5个链接绑定事件
+	// 实现鼠标经过标签栏显示悬浮效果，下面内容显示对应内容
 	for (let i = 0; i < a.length; i++) {
 		a[i].addEventListener('mouseenter', function () {
-			console.log('鼠标经过')
+			// console.log('鼠标经过')
+			// 删除之前的悬浮效果以及图片内容
+			activeA.classList.remove('active')
+			activeItem.classList.remove('active')
+			// 加入新的悬浮效果和对应图片内容
+			a[i].classList.add('active')
+			item[i].classList.add('active')
+			// 重新获取新的悬浮效果和对应内容
+			activeA = document.querySelector('.tab-nav .active')
+			activeItem = document.querySelector('.tab-content .active')
+			
 		})
 	}
 </script>
